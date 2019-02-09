@@ -26,10 +26,12 @@ require(MISC_DIR);
 date_default_timezone_set('Europe/Warsaw');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	
+
+	if (!file_exists(REPORTS_DIR)) mkdir(REPORTS_DIR);
+	if (!file_exists(RESULTS_DIR)) mkdir(RESULTS_DIR);
 	clearFolder(REPORTS_DIR);
 	clearFolder(RESULTS_DIR);
-	
+
 	$type=(int)$_POST["TYPE"];
 	$precUI=(int)$_POST["PRECUI"];
 	$precA=(int)$_POST["PRECA"];
@@ -39,11 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	'!DATE!' => $_POST["DATE"],
 	'!COMMENTS!' => $_POST["COMMENTS"]
 	);
-	
+
 	foreach ($_FILES['files']['name'] as $id => $name) {
 		if (strlen($_FILES['files']['name'][$id])>1) move_uploaded_file($_FILES['files']['tmp_name'][$id],REPORTS_DIR.$name);
     }
-	
+
 	if ($type===1) {
 		$parameters=$parametersGPZ_CT;
 		$parametersTemplate=$parametersTemplateCT;
@@ -66,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	else require(ERROR_DIR);
 	unset($data);
-	
+
 }
 
 else require(FORM_DIR);
