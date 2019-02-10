@@ -24,19 +24,19 @@ I created this program to make work I did in my job easier and faster. Before, c
 ## Screenshots
 
 #### Main interface of  the program
-![screenshot](./img/1.jpg)
+![screenshot](./img/1.JPG)
 
 #### Example report file (input)
-![screenshot](./img/4.jpg)
+![screenshot](./img/4.JPG)
 
 #### Another example file
-![screenshot](./img/5.jpg)
+![screenshot](./img/5.JPG)
 
 #### Example colletive report file (output), page 1/2
-![screenshot](./img/2.jpg)
+![screenshot](./img/2.JPG)
 
 #### Example colletive report file (output), page 2/2
-![screenshot](./img/3.jpg)
+![screenshot](./img/3.JPG)
 
 ## Technologies
 * HTML - version 5
@@ -44,9 +44,9 @@ I created this program to make work I did in my job easier and faster. Before, c
 
 ## Setup
 1. Copy all files to your PHP-configured web server.
-2. Change values of following parameters in your php.ini file:
-`post_max_size = 1G`
-`upload_max_filesize = 1G`
+2. Change values of following parameters in your php.ini file:  
+`post_max_size = 1G`  
+`upload_max_filesize = 1G`  
 `max_file_uploads = 1000`
 
 3. If you are using nginx web server you also need to add following line in nginx.conf file:
@@ -56,5 +56,5 @@ I created this program to make work I did in my job easier and faster. Before, c
 Project is: **finished**
 
 ## Contact
-Created by [@RafalMroz94](https://github.com/RafalMroz94)
+Created by [@RafalMroz94](https://github.com/RafalMroz94)  
 Feel free to contact me via e-mail: rafal.mroz@outlook.com
