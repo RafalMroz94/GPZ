@@ -41,32 +41,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	'!DATE!' => $_POST["DATE"],
 	'!COMMENTS!' => $_POST["COMMENTS"]
 	);
-
+	// move uploaded reports to REPORTS_DIR
 	foreach ($_FILES['files']['name'] as $id => $name) {
 		if (strlen($_FILES['files']['name'][$id])>1) move_uploaded_file($_FILES['files']['tmp_name'][$id],REPORTS_DIR.$name);
     }
 
-	if ($type===1) {
+	if ($type===1) { // current transformer report
 		$parameters=$parametersGPZ_CT;
 		$parametersTemplate=$parametersTemplateCT;
 		$templateDir=TEMPLATECT_DIR;
 	}
-	if ($type===2) {
+	if ($type===2) { // voltage transformer report
 		$parameters=$parametersGPZ_VT;
 		$parametersTemplate=$parametersTemplateVT;
 		$templateDir=TEMPLATEVT_DIR;
 	}
 
-	$data=readAll(REPORTS_DIR.'*.htm',$parameters,$type);
-	if ($data!==false) {
+	$data=readAll(REPORTS_DIR.'*.htm',$parameters,$type); // read data from reports
+	if ($data!==false) { // at least one valid report
 		$quantity=count($data);
-		$data=convertToTemplate($data,$parametersTemplate,$type,$precUI,$precA);
-		$filenameDate='GPZ_'.date('Ymd_His');
-		writeAll($templateDir,RESULTS_DIR,$data,$misc,$quantity,$filenameDate);
-		zipResults($filenameDate,RESULTS_DIR);
+		$data=convertToTemplate($data,$parametersTemplate,$type,$precUI,$precA); // convert data to match output template
+		$filenameDate='GPZ_'.date('Ymd_His'); // name of zip, part of output files name
+		writeAll($templateDir,RESULTS_DIR,$data,$misc,$quantity,$filenameDate); // write data to output files
+		zipResults($filenameDate,RESULTS_DIR); // zip output
 		require(SUCCESS_DIR);
 	}
-	else require(ERROR_DIR);
+	else require(ERROR_DIR); // no valid reports
 	unset($data);
 
 }
