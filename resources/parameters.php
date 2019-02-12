@@ -1,5 +1,5 @@
 <?php
-$parametersGPZ_CT=array(
+$parametersGPZ_CT=array( // parameters (tags) added to M100_PC's current transformer template
 '!GPZ_SN!',
 '!GPZ_TYPE!',
 '!GPZ_PRIM_CURR!',
@@ -19,8 +19,8 @@ $parametersGPZ_CT=array(
 '!GPZ_DA_100S_1I!'
 );
 
-$parametersTemplateCT=array(
-'!SN$X!',
+$parametersTemplateCT=array( // parameters in output template (CT), corresponding to input template (order must be the same)
+'!SN$X!', // "$X" in each parameter is replaced with number from 0 to 9 in convert.php
 '!TYPE$X!',
 '!PRIM$X!',
 '!UP$X!',
@@ -39,7 +39,7 @@ $parametersTemplateCT=array(
 '!DA$X3!',
 );
 
-$parametersGPZ_VT=array(
+$parametersGPZ_VT=array( // parameters (tags) added to M100_PC's voltage transformer template
 '!GPZ_SN!',
 '!GPZ_TYPE!',
 '!GPZ_PRIM_VOLT!',
@@ -60,8 +60,8 @@ $parametersGPZ_VT=array(
 '!GPZ_DA_25S_120U!'
 );
 
-$parametersTemplateVT=array(
-'!SN$X!',
+$parametersTemplateVT=array( // parameters in output template (CT), corresponding to input template (order must be the same)
+'!SN$X!', // "$X" in each parameter is replaced with number from 0 to 9 in convert.php
 '!TYPE$X!',
 '!PRIM$X!',
 '!POW$X!',
